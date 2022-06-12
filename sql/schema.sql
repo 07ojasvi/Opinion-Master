@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    email TEXT PRIMARY KEY,
+    name TIMESTAMP NOT NULL,
+    password TEXT NOT NULL
+);
+
+
+DROP TABLE IF EXISTS reports;
+
+CREATE TABLE reports (
+    id TEXT PRIMARY KEY,
+    number INTEGER NOT NULL,
+    query TEXT NOT NULL,
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    email TEXT NOT NULL,
+    FOREIGN KEY(email) REFERENCES users(email)
+);
+

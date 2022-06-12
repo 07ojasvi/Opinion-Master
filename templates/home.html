@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title> Home </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
+</head>
+
+<body>
+    <h1>Opinion Master</h1>
+    <hr>
+    <p>Add in a description about how to use the app</p>
+    <hr><br>
+    <form method="post" action="/generateReport" class="user" role="form">
+        <label required for="query">Query</label>
+        <input required id="query" type="query" name="query" placeholder="Enter your query or hashtag" aria-label="query">
+
+        <label required for="number">Number of Tweets</label>
+        <input name="number" id="number" type="number" placeholder="Number of tweets you want to search "
+            aria-label="number">
+
+        <br>
+
+        <input type="submit">
+
+
+    </form>
+
+    <br>
+    <hr>
+
+    <h2>Your Previous Reports</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Query</th>
+                <th>Number of Tweets</th>
+                <th>Report ID</th>
+            </tr>
+        </thead>
+        <tbody id="reports">
+
+            {%for i in range (0, len)%}
+            <tr>
+                <td>{{rows[i][2]}}</td>
+                <td>{{rows[i][1]}}</td>
+                <td><a href="report/{{rows[i][0]}}">{{rows[i][0]}}</a></td>
+            </tr>
+            {%endfor%}
+            
+        </tbody>
+    </table>
+    <footer> <a href="/home">Home</a> <a href="/logout">Logout</a> </footer>
+</body>
+
+</html>

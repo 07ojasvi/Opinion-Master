@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title> Login | Opinion Master </title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+		<script src="{{url_for('static', filename='js/script.js')}}" defer></script>
+	</head>
+
+	<body>
+        <h1>Login to Opinion Master </h1>
+		<hr>
+		<p>Opinion master does shit. Please explain what it does.</p>
+		<hr>
+		<br>
+		<form method="post" action="/login_validation" class="user" role="form">
+			<label for="email">Email</label>
+			<input id="email" type="email" name="email" placeholder="Email" aria-label="Email">
+
+			<label for="password">Password</label>
+			<input name="password" id="password" type="password" placeholder="Password" aria-label="Password">
+
+			<a href="/register">Not Registered?</a>
+			<br><br>
+
+			<input type="submit">
+
+		</form>
+		
+	</body>
+</html>

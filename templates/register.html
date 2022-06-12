@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title> Register for Opinion Master</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
+</head>
+
+<body>
+    <h1>Register for Opinion Master </h1>
+    <hr>
+    <br>
+    <form method="post" action="/add_user">
+        <input type="text" required name="uname" class="form-control" placeholder="Name" aria-label="Name">
+        <input name="uemail" required type="email" required class="form-control" placeholder="Email" aria-label="Email">
+        <input name="upassword" required type="password" class="form-control" placeholder="Password"
+            aria-label="Password">
+        <input required type="checkbox" value="" id="flexCheckDefault" checked>
+        <label for="flexCheckDefault">
+            I agree with the Terms & Conditions
+        </label><br><br>
+        <input type="submit" >
+        <a href="/login">Already Registered?</a>
+    </form>
+</body>
+
+</html>

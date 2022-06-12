@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
+    <title>Report for "{{queryName}}"</title>
+</head>
+
+<body>
+    <h1 id="h1Title">Report for "{{queryName}}"</h1>
+    
+    <hr><a href="/home">Home</a>
+    <br><hr><br>
+
+    <label required for="query">Query</label>
+    <input id="query" disabled name="query" value="{{queryName}}" aria-label="query">
+
+    <label required for="number">Number of Tweets</label>
+    <input name="number" disabled id="number" value="{{numberOfTweets}}" aria-label="number">
+    
+    <p>
+        <h4>Report ID: {{reportID}} <a href="{{ url_for('static', filename='reports/'+ reportID + '/'+ '0_csv.csv' )}}">CSV</a></h4>
+
+    </p>
+    <p>Created: {{createdDate}}</p>
+
+    <hr>
+
+    <details>
+        <summary>Total count of tweets</summary>
+        <p>What is this supposed to be??</p>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '1_count.html' )}}" title=""></iframe>
+    </details>
+
+    <details>
+        <summary>Pie Chart</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '2_pie.png' )}}" alt=""></iframe>
+    </details>
+
+    <details>
+        <summary>Positive Wordcloud</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '3_positiveWC.png' )}}" title=""></iframe>
+    </details>
+
+    <details>
+        <summary>Negative Wordcloud</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '4_negativeWC.png' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Sentiment Length</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '6_sentimentLength.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Sentiment Word Count</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '7_sentimentWordCount.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>List</summary>
+        <iframe height="500" width="750" src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '8_list.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Most Used</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '9_mostUsed.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Bi-gram</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '10_bigram.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Trigram</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '11_trigram.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Table</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '12_table.html' )}}" title=""></iframe>
+    </details>
+    <!-- <details>
+        <summary>Count plot</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '13_countplot.png' )}}" alt=""></iframe>
+    </details> -->
+    <details>
+        <summary>Funnel</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '14_funnel.png' )}}" alt=""></iframe>
+    </details>
+    <details>
+        <summary>Common Words</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '15_commonWords.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Common Words</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '16_commonWords.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Common Words</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '16_commonWords.png' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Tree</summary>
+        <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '17_tree.png' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Most Positive</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '18_mostPositive.html' )}}" title=""></iframe>
+    </details>
+
+    <footer> <a href="/home">Home</a> <a href="/logout">Logout</a> </footer>
+
+
+</body>
+
+</html>
