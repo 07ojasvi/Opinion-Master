@@ -93,7 +93,7 @@ class Sentiments:
     def generateReport(self):
             
 
-            BASE_PATH=os.path.join("reports/", self.reportID)
+            BASE_PATH=os.path.join("static/reports/", self.reportID)
             os.mkdir(BASE_PATH)
 
             consumerKey = 'U63C3XUhvDt8ZfyZCvcIQl7EP'
