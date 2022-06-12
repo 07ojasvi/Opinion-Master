@@ -28,22 +28,25 @@
 
     <details>
         <summary>Total count of tweets</summary>
-        <p>What is this supposed to be??</p>
+        <p>This will give you an overview of positive, negative and neutral tweets</p>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '1_count.html' )}}" title=""></iframe>
     </details>
 
     <details>
         <summary>Pie Chart</summary>
+        <p>Visual Illustration for positive, negative and neutral tweets</p>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '2_pie.png' )}}" alt=""></iframe>
     </details>
 
     <details>
         <summary>Positive Wordcloud</summary>
+        <p>Positive_WordCloud is visual representation of positive words' frequency. The more commonly the term appears within the positive texts being analysed, the larger the word appears in the image generated.</p>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '3_positiveWC.png' )}}" title=""></iframe>
     </details>
 
     <details>
         <summary>Negative Wordcloud</summary>
+        <p>Negative_WordCloud is visual representation of negative words' frequency. The more commonly the term appears within the negative texts being analysed, the larger the word appears in the image generated.</p>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '4_negativeWC.png' )}}" title=""></iframe>
     </details>
     <details>
@@ -52,55 +55,81 @@
     </details>
     <details>
         <summary>Sentiment Word Count</summary>
+        <p>This gives you the count out of the total tweets, how many are acc positive, negative or neutral</p>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '7_sentimentWordCount.html' )}}" title=""></iframe>
     </details>
     <details>
         <summary>List</summary>
+        <p>List generated after Pre-Processing, Cleaning and Segregating on the basis of features like polarity, subjectivity and strength of text.</p>
         <iframe height="500" width="750" src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '8_list.html' )}}" title=""></iframe>
     </details>
     <details>
         <summary>Most Used</summary>
+        <p>This gives you an overall idea about most used words</p>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '9_mostUsed.html' )}}" title=""></iframe>
     </details>
     <details>
         <summary>Bi-gram</summary>
+        <p>Bi-grams of texts are extensively used in text mining and analytical tasks. They are basically a pair of co-occurring/hashtag trending words within a given window</p>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '10_bigram.html' )}}" title=""></iframe>
     </details>
     <details>
         <summary>Trigram</summary>
+        <p>Tri-grams of texts are extensively used in text mining and analytical tasks. They are basically trio of co-occurring/hashtag trending words within a given  window</p>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '11_trigram.html' )}}" title=""></iframe>
     </details>
     <details>
         <summary>Table</summary>
+        <p>Table of tweets after further cleaning and processing</p>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '12_table.html' )}}" title=""></iframe>
     </details>
     <!-- <details>
         <summary>Count plot</summary>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '13_countplot.png' )}}" alt=""></iframe>
     </details> -->
-    <details>
+    <!--details>
         <summary>Funnel</summary>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '14_funnel.png' )}}" alt=""></iframe>
-    </details>
-    <details>
-        <summary>Common Words</summary>
+    </details>-->
+    <!-- <details>
+        <summary>Common Words Heatmap for Positive</summary>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '15_commonWords.html' )}}" title=""></iframe>
     </details>
     <details>
-        <summary>Common Words</summary>
+        <summary>Common Words Heatmap for negative</summary>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '16_commonWords.html' )}}" title=""></iframe>
-    </details>
+    </details> -->
     <details>
-        <summary>Common Words</summary>
+        <summary>Common Words </summary>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '16_commonWords.png' )}}" title=""></iframe>
     </details>
-    <details>
+    <!--details>
         <summary>Tree</summary>
         <img src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '17_tree.png' )}}" title=""></iframe>
-    </details>
+    </details>-->
     <details>
         <summary>Most Positive</summary>
         <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '18_mostPositive.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Most Negative</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '19_mostNegative.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Most Neutral</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '20_mostNeutral.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Unique Positive</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '21_uniquePositive.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Unique Negative</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '22_uniqueNegative.html' )}}" title=""></iframe>
+    </details>
+    <details>
+        <summary>Unique Neutral</summary>
+        <iframe src="{{ url_for('static', filename='reports/'+ reportID + '/'+ '23_uniqueNeutral.html' )}}" title=""></iframe>
     </details>
 
     <footer> <a href="/home">Home</a> <a href="/logout">Logout</a> </footer>

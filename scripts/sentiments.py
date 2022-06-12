@@ -479,6 +479,82 @@ class Sentiments:
             mostPositivePath = os.path.join(BASE_PATH, "18_mostPositive.html")
             dataFrameSave(mostPositive, mostPositivePath)
 
+            #MosT common negative words
+            top = Counter([item for sublist in Negative_sent['temp_list'] for item in sublist])
+            temp_negative = pd.DataFrame(top.most_common(20))
+            temp_negative = temp_negative.iloc[1:,:]
+            temp_negative.columns = ['Common_words','count']
+            mostNegative = temp_negative.style.background_gradient(cmap='Reds').to_html()
+
+            mostNegativePath = os.path.join(BASE_PATH, "19_mostNegative.html")
+            dataFrameSave(mostNegative, mostNegativePath)
+
+            #MosT common Neutral words
+            top = Counter([item for sublist in Neutral_sent['temp_list'] for item in sublist])
+            temp_neutral = pd.DataFrame(top.most_common(20))
+            temp_neutral = temp_neutral.loc[1:,:]
+            temp_neutral.columns = ['Common_words','count']
+            mostNeutral = temp_neutral.style.background_gradient(cmap='Reds').to_html()
+
+            mostNeutralPath = os.path.join(BASE_PATH, "20_mostNeutral.html")
+            dataFrameSave(mostNeutral, mostNeutralPath)
+
+            raw_text = [word for word_list in train['temp_list1'] for word in word_list]
+
+            def words_unique(sentiment,numwords,raw_words):
+                '''
+                Input:
+                    segment - Segment category (ex. 'Neutral');
+                    numwords - how many specific words do you want to see in the final result; 
+                    raw_words - list  for item in train_data[train_data.segments == segments]['temp_list1']:
+                Output: 
+                    dataframe giving information about the name of the specific ingredient and how many times it occurs in the chosen cuisine (in descending order based on their counts)..
+
+                '''
+                allother = []
+                for item in train[train.sentiment != sentiment]['temp_list1']:
+                    for word in item:
+                        allother .append(word)
+                allother  = list(set(allother ))
+                
+                specificnonly = [x for x in raw_text if x not in allother]
+                mycounter = Counter()
+                
+                for item in train[train.sentiment == sentiment]['temp_list1']:
+                    for word in item:
+                        mycounter[word] += 1
+                keep = list(specificnonly)
+                
+                for word in list(mycounter):
+                    if word not in keep:
+                        del mycounter[word]
+                
+                Unique_words = pd.DataFrame(mycounter.most_common(numwords), columns = ['words','count'])
+                
+                return Unique_words
+
+
+            Unique_Positive= words_unique('positive', 20, raw_text)
+            # print("The top 20 unique words in Positive Tweets are:")
+            uniquePositive = Unique_Positive.style.background_gradient(cmap='Greens').to_html() #unique positive
+
+            uniquePositivePath = os.path.join(BASE_PATH, "21_uniquePositive.html")
+            dataFrameSave(uniquePositive, uniquePositivePath)
+
+            Unique_Negative= words_unique('negative', 10, raw_text)
+            # print("The top 10 unique words in Negative Tweets are:")
+            uniqueNegative = Unique_Negative.style.background_gradient(cmap='Reds').to_html() #unique negative
+
+            uniqueNegativePath = os.path.join(BASE_PATH, "22_uniqueNegative.html")
+            dataFrameSave(uniqueNegative, uniqueNegativePath)
+
+            Unique_Neutral= words_unique('neutral', 10, raw_text)
+            print("The top 10 unique words in Neutral Tweets are:")
+            uniqueNeutral = Unique_Neutral.style.background_gradient(cmap='Oranges').to_html() #unique neutal
+
+            uniqueNeutralPath = os.path.join(BASE_PATH, "23_uniqueNeutral.html")
+            dataFrameSave(uniqueNeutral, uniqueNeutralPath)
+
             return self.reportID
                 
         
